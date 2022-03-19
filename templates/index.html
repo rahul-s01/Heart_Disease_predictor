@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='./styles/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='./styles/home.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.png') }}">
+    <title>Heart Disease Predictor</title>
+</head>
+
+<body>
+    <nav>
+        <a class="menu act titl" href="/"><b>Heart Disease Predictor</b></a>
+        <a class="menu non" href="./predict">Prediction</a>
+        <a class="menu non" href="/blog">Blog</a>
+    </nav>
+    <div class="banner">
+        <div class="description">
+            <i class="descban" id="descban"><img class="descban logo"
+                    src="{{ url_for('static', filename='./home/logo2.png') }}"></i><br><br>
+            <i class="descdesc" id="descdesc">Heart Disease Predictor is a Machine Learning based Web Application. It can detect
+                whether you are suffering from a heart disease
+                or not.
+            </i>
+        </div>
+    </div>
+    <center>
+        <div class="gallery">
+            <a class="gal" target="_blank" href="./predict">
+                <img src="{{ url_for('static', filename='./home/predict.png')}}" alt="Prediction" width="600"
+                    height="400">
+
+                <div class="desc">Click to check if you have risk of any heart disease</div>
+            </a>
+        </div>
+
+        <div class="gallery">
+            <a class="gal" target="_blank" href="./dataset">
+                <img src="{{ url_for('static', filename='./home/UCI.png')}}" alt="Dataset Used" width="600"
+                    height="400">
+                <div class="desc">About the Dataset used</div>
+            </a>
+
+        </div>
+
+        <div class="gallery">
+            <a class="gal" target="_blank" href="./heartblog">
+                <img src="{{ url_for('static', filename='./home/know.png')}}" alt="Heart Diseases" width="600"
+                    height="400">
+                <div class="desc">Heart diseases can be serious. Click to know more about them.</div>
+            </a>
+        </div>
+    </center>
+</body>
+<script type="text/javascript" src="{{ url_for('static', filename='intro.js') }}"></script>
+
+</html>

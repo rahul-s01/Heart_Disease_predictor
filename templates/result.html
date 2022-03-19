@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='./styles/style.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='./styles/result.css')}}">
+	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.png') }}">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style type="text/css">
+		li {
+			margin-left: 50px;
+			margin-right: 50px;
+		}
+		mark{
+			margin-left: 80px;
+			margin-right: 50px;
+			background-color: #c6c0e2;
+			padding: 5px;
+		}
+		.res1{
+			color:red;
+		}
+		.res2{
+			color:green;
+		}
+	</style>
+	<title>Heart Disease Predictor | Prediction-Results</title>
+</head>
+
+<body class="trial">
+	<nav>
+		<a class="menu titl" href="/"><b>Heart Disease Predictor</b></a>
+		<a class="menu non" href="./predict">Prediction</a>
+		<a class="menu non" href="/blog">Blog</a>
+	</nav>
+	<div class="content">
+		<div class="write">
+			<h1>
+				<center><mark>Thank You for using Heart Disease Predictor!</mark></center>
+			</h1>
+			<br><br><br>
+			<center>
+				<table id="restable">
+					<tr>
+						<th>Name</th>
+						<th>Result</th>
+					</tr>
+					<tr>
+						<td>{{session['name']}}</td>
+						{% if 'NEGATIVE' in results %}
+							<td class="res1">{{results}}</td>
+						{% elif 'POSITIVE' in results %}
+							<td class="res2">{{results}}</td>
+						{% endif %}
+					</tr>
+				</table>
+			</center>
+			<br><br><br>
+			<h2>
+				<center><u>Here is your analytical report</u></center>
+			</h2>
+
+			<br><br>
+			<mark>NOTE: The results are purely based on our dataset, so we advise you to visit a doctor
+				nonetheless.</mark>
+			<br><br><br>
+			<ul>
+				<li>{{reports['chol']}}</li>
+
+				<image class="plots" src='/plot_chol.png'>
+					<br>
+					<li>{{reports['trestbps']}}</li>
+
+					<image class="plots" src='/plot_bp.png'>
+						<br>
+						<li>{{reports['thalach']}}</li>
+
+						<image class="plots" src='/plot_thalach.png'>
+							<br><br>
+							<li>{{reports['cp']}}</li>
+							<br><br>
+							<li>{{reports['fbs']}}</li>
+							<br><br>
+							<li>{{reports['exang']}}</li>
+							<br><br>
+							<li>{{reports['slope']}}</li>
+							<br><br>
+							<li>{{reports['thal']}}</li>
+							<br><br>
+							<li>{{reports['ca']}}</li>
+							<br><br>
+			</ul>
+		</div>
+	</div>
+</body>
+
+</html>
